@@ -1,0 +1,16 @@
+{% extends "stat_site/base.html" %}
+{% block main %}
+<p>
+   {{ profession.profession_name }}
+</p>
+<p>
+    {{ profession.title }}
+    {% for photo in photos %}
+    {{photo.image_name}}
+    {% endfor %}
+</p>
+<p>
+   {{ profession.desription }}
+</p>
+{% endblock %}
+{% block link_1%}<a href="{%url 'welcome' %}">на главную</a>{% endblock %}

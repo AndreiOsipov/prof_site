@@ -18,7 +18,7 @@ class Professions(models.Model):
         ]
 
 class ProfessionalYaersAnalitics(models.Model):
-    year = models.IntegerField(choices=[(year,year) for year in range(2000, datetime.datetime.now().year)],verbose_name='год')
+    year = models.IntegerField(choices=[(year,year) for year in range(2000, datetime.datetime.now().year)],verbose_name='год', primary_key=True)
     profession_id = models.ForeignKey(Professions, db_column='profession_id',on_delete=models.CASCADE)
     middle_salary = models.IntegerField(verbose_name='средняя зарплата за год')
     vacancies_num = models.IntegerField(verbose_name='количество вакансий за год по выбранной профессии')
@@ -43,7 +43,7 @@ class ProfessionalSkillsByYear(models.Model):
         verbose_name_plural = 'навыки за каждый год с их местом в рейтенге'
 
 class LocationAnaliticsWithProfession(models.Model):
-    location = models.CharField(max_length=40,verbose_name='название города/страны')
+    location = models.CharField(max_length=40,verbose_name='название города/страны', primary_key=True)
     profession_id = models.ForeignKey(Professions, db_column='profession_id',on_delete=models.CASCADE)
     vacancies_share = models.FloatField(verbose_name='доля вакансий в городе/стране по этойп профессии')
     middle_salary = models.IntegerField(verbose_name='средняя зп в городе/стране по этой профессии')
@@ -62,7 +62,7 @@ class ProfessionImages(models.Model):
 
 class LocationAnalitics(models.Model):
 
-    location = models.CharField(max_length=40,verbose_name='название города/страны')
+    location = models.CharField(max_length=40,verbose_name='название города/страны', primary_key=True)
     vacancies_share = models.FloatField(verbose_name='доля вакансий в этом городе/стране')
     middle_salary = models.IntegerField(verbose_name='средняя зп в этом городе/стране')
     
@@ -75,7 +75,7 @@ class LocationAnalitics(models.Model):
         ]
 
 class YaersAnalitics(models.Model):
-    year = models.IntegerField(choices=[(year,year) for year in range(2000, datetime.datetime.now().year)], verbose_name='год')
+    year = models.IntegerField(choices=[(year,year) for year in range(2000, datetime.datetime.now().year)], verbose_name='год', primary_key=True)
     middle_salary = models.IntegerField(verbose_name='средняя зп за этот год')
     vacancies_num = models.IntegerField(verbose_name='количество вакансий в этом году')
     
