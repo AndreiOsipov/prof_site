@@ -8,12 +8,16 @@
 {% block main %}
 <p>
     здесь вы можете узнать о том, на сколько востребованна профессия администратора баз данных, сколько ему готовы предложить и как часто его будут звать в компании
+
 </p>
 
 <p>
     предлагаю рассмтотреть таблицы аналитики за несколько лет как в целом, так и для админов бд
 </p>
 <p>
+    <p>
+        таблица для всех вакансий
+    </p>
     <table class = "years_table">
         <tr>
             <th>год</th><th>количество вакансий</th><th>средняя зарплата</th>
@@ -32,6 +36,7 @@
     <input type="button" value="третий" onclick="javascript:img.src='{{ years_prof_vacancies_image.image.url }}'">
     <input type="button" value="четвертый" onclick="javascript:img.src='{{ years_prof_salaries_image.image.url }}'">
     </p>
+    <p>таблица для администраторов баз данных</p>
     <table class="prof_table">
         <tr>
             <th>год</th><th>количество вакансий</th><th>средняя зарплата</th>

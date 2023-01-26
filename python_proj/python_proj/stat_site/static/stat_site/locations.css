@@ -15,3 +15,8 @@ td{
 .prof{
     display: inline-block;
 }
+.btns{
+    position: relative;
+    margin-left: 50%;
+    margin-right: 50%;
+}

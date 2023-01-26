@@ -1,2 +1,20 @@
 {% extends "stat_site/base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'stat_site/skills.css' %}">
+{% endblock %}
+
 {% block link_4 %}<a href="{% url 'welcome'%}">на главную</a>{% endblock %}
+{% block main %}
+<table>
+{% for set in  skills_by_year%}
+    
+    <tr>
+    <td>{{set.0.year}}</td>
+    {% for skill in set %}
+    <td>{{ skill.description }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

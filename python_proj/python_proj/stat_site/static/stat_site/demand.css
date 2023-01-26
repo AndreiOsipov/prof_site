@@ -2,12 +2,15 @@
 
 .graph_img{
     position: absolute;
-    right: 15%;
-    top: 10%
+    right: 5%;
+    top: 10%;
+    margin-left:0%;
+    margin-right: 0%;
 }
 .btns{
     position: relative;
     left: 50%;
+    width: 50%;
 }
 th{
 background: darkgreen;

@@ -101,7 +101,10 @@ def ret_location_page(request):
 def ret_skills_page(request):
     profession = Professions.objects.first()
     skills = ProfessionalSkillsByYear.objects.filter(profession_id = profession.profession_id)
-    context = {'skills_by_year': skills}
+    
+    skills_by_year = [list(skills.filter(year = i).order_by('raiting_place')) for i in range(2015, 2023)]
+
+    context = {'skills_by_year': skills_by_year}
     return render(request,"stat_site/skills_page.html",context=context)
 
 def ret_last_vacancys_page(request):

@@ -38,10 +38,11 @@
 <p>
     географики:</p>
 <img class="graph_img" name="img" src='{{ cities_salaries.image.url }}'>
+<p clas="btns">
 <input type="button" value="первый" onclick="javascript:img.src='{{ cities_salaries.image.url }}'">
 <input type="button" value="второй" onclick="javascript:img.src='{{ cities_vacancies.image.url }}'">
 <input type="button" value="третий" onclick="javascript:img.src='{{ cities_prof_vacancies.image.url }}'">
 <input type="button" value="четвертый" onclick="javascript:img.src='{{ cities_prof_salaries.image.url }}'">
-
+</p>
 {%endblock%}
 {% block link_3 %}<a href="{% url 'welcome'%}">на главную</a>{% endblock %}

@@ -1,0 +1,16 @@
+td
+{
+
+    font-size: smaller;
+    border: 0.5px solid black;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+    background-color: #F15124;
+  }
+  
+tr:nth-child(even) {
+    background-color: gray;
+  }
