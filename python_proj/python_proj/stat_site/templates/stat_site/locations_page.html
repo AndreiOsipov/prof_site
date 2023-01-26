@@ -1,2 +1,47 @@
 {% extends "stat_site/base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet"  href="{% static 'stat_site/locations.css' %}">
+{% endblock %}
+{%block main%}
+<p>
+    эта страница посвящена аналитики географии
+</p>
+
+<table class="non_prof">
+    <tr><th>горд</th><th>средняя зп</th><th>доля вакансий</th></tr>
+    {%for city in  locations_by_salaries%}
+    <tr><td>{{city.location}}</td><td>{{city.middle_salary}}</td><td>{{city.vacancies_share}}</td></tr>
+    {% endfor %}
+</table>
+<table class="non_prof">
+    <tr><th>горд</th><th>доля вакансий</th><th>средняя зп</th></tr>
+    {%for city in  locations_by_vacancies%}
+    <tr><td>{{city.location}}</td><td>{{city.vacancies_share}}</td><td>{{city.middle_salary}}</td></tr>
+    {% endfor %}
+</table>
+
+<p>для админов бд рейтинг лучших городов следующий:</p>
+<table class="prof">
+    <tr><th>горд</th><th>средняя зп</th><th>доля вакансий</th></tr>
+    {%for city in  prof_locations_by_salaries%}
+    <tr><td>{{city.location}}</td><td>{{city.middle_salary}}</td><td>{{city.vacancies_share}}</td></tr>
+    {% endfor %}
+</table>
+
+<table class="prof">
+    <tr><th>горд</th><th>доля вакансий</th><th>средняя зп</th></tr>
+    {%for city in  prof_locations_by_vacancies%}
+    <tr><td>{{city.location}}</td><td>{{city.vacancies_share}}</td><td>{{city.middle_salary}}</td></tr>
+    {% endfor %}
+</table>
+<p>
+    географики:</p>
+<img class="graph_img" name="img" src='{{ cities_salaries.image.url }}'>
+<input type="button" value="первый" onclick="javascript:img.src='{{ cities_salaries.image.url }}'">
+<input type="button" value="второй" onclick="javascript:img.src='{{ cities_vacancies.image.url }}'">
+<input type="button" value="третий" onclick="javascript:img.src='{{ cities_prof_vacancies.image.url }}'">
+<input type="button" value="четвертый" onclick="javascript:img.src='{{ cities_prof_salaries.image.url }}'">
+
+{%endblock%}
 {% block link_3 %}<a href="{% url 'welcome'%}">на главную</a>{% endblock %}

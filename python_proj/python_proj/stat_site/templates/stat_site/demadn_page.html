@@ -1,2 +1,49 @@
 {% extends "stat_site/base.html" %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'stat_site/demand.css' %}" />
+{% endblock %}
+
+{% block main %}
+<p>
+    здесь вы можете узнать о том, на сколько востребованна профессия администратора баз данных, сколько ему готовы предложить и как часто его будут звать в компании
+</p>
+
+<p>
+    предлагаю рассмтотреть таблицы аналитики за несколько лет как в целом, так и для админов бд
+</p>
+<p>
+    <table class = "years_table">
+        <tr>
+            <th>год</th><th>количество вакансий</th><th>средняя зарплата</th>
+        </tr>
+        {% for analitics_row in years_analitics %}
+        <tr>
+        <td>{{analitics_row.year}}</td><td>{{analitics_row.vacancies_num}}</td><td>{{analitics_row.middle_salary}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <img class="graph_img" name="img" src='{{ years_vacancies_image.image.url }}'>
+    <p class="btns">
+    <input type="button" value="первый" onclick="javascript:img.src='{{ years_vacancies_image.image.url }}'">
+    <input type="button" value="второй" onclick="javascript:img.src='{{ years_salaries_image.image.url }}'">
+    <input type="button" value="третий" onclick="javascript:img.src='{{ years_prof_vacancies_image.image.url }}'">
+    <input type="button" value="четвертый" onclick="javascript:img.src='{{ years_prof_salaries_image.image.url }}'">
+    </p>
+    <table class="prof_table">
+        <tr>
+            <th>год</th><th>количество вакансий</th><th>средняя зарплата</th>
+        </tr>
+            {% for analitics_row in prof_years_anatics %}
+        <tr>
+            <td>{{analitics_row.year}}</td><td>{{analitics_row.vacancies_num}}</td><td>{{analitics_row.middle_salary}}</td>
+        </tr>
+            {% endfor %}
+    </table>
+
+</p>
+
+{% endblock %}
 {% block link_2 %}<a href="{% url 'welcome'%}">на главную</a>{% endblock %}

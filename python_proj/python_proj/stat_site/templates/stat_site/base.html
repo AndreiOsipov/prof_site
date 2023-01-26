@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
-        <header></header>
-        <body>
-            <main>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'stat_site/base_static.css' %}" />
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+    <header>
+            администратор баз данныз как 
+    </header>
+    <main class="main-content">
                 {% block main%}
                 главная часть страницы
                 {% endblock %}
-            </main>
-            <ul>
+    </main>
+    <ul class="left-menu">
                 <li>{% block link_1 %}<a href="{% url 'profession' %}">о профессии</a>{% endblock %}</li>
                 <li>{% block link_2 %}<a href="{% url 'demand'%}">востребованность этой профессии</a>{% endblock %}</li>
                 <li>{% block link_3 %}<a href="{% url 'locations'%}">где лучше всего работать</a>{% endblock %}</li>
                 <li>{% block link_4 %}<a href="{% url 'skills'%}">то что нужно уметь</a>{% endblock %}</li>
                 <li>{% block link_5 %}<a href="{% url 'last_vacancies'%}">вчерашние вакансии</a>{% endblock %}</li>
-            </ul>
-        </body>
-        <footer>
-            {% block footer %}{% endblock %}
-        </footer>
-    </head>
+    </ul>
+
+    <footer>
+            Осипов Андрей Владимирович РИ-210912
+    </footer>
+    </body>
 </html>

@@ -1,0 +1,10 @@
+.main-content{
+    position: relative;
+    left: 20%;
+    
+}
+.left-menu{
+    position: fixed;
+    top: 0%;
+    left: 0;
+}
